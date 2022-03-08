@@ -15,17 +15,28 @@ var app = new Vue({
 	data: {
 		displayText: '',
 		currentenv: null,
-		pawns: []
+		pawns: [],
+		SugarL10n: null,
+		l10n: {
+			stringAddPawn: '',
+		}
+	},
+	mounted: function () {
+		this.SugarL10n = this.$refs.SugarL10n;
 	},
 	methods: {
 		initialized: function () {
 			// Sugarizer initialized
 			this.currentenv = this.$refs.SugarActivity.getEnvironment();
-			this.displayText = "Hello " + environment.user.name + "!";	
+		},
+		// Handles localized event
+		localized: function () {
+			this.displayText = this.SugarL10n.get("Hello",  {name: this.currentenv.user.name});
+			this.SugarL10n.localize(this.l10n);
 		},
 		onAddClick: function () {
 			this.pawns.push(this.currentenv.user.colorvalue);
-			this.displayText = this.currentenv.user.name + " played";
+			this.displayText = this.SugarL10n.get("Played", {name: this.currentenv.user.name });
 		},
 		onStop: function () {
 			// Save current pawns in Journal on Stop
