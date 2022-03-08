@@ -27,11 +27,12 @@
 			<sugar-toolitem id="stop-button" title="Stop" class="pull-right"></sugar-toolitem>
 		</sugar-toolbar>
 
-		<h1>Congratulations!</h1>
-		<p>You are ready to develop this activity. Go ahead and edit the files.<br />
-		You can remove this message in the index.html.</p>
+		<sugar-activity ref="SugarActivity" v-on:initialized="initialized"></sugar-activity>
+		<div id="user">
+			<h1>{{ displayText }}</h1>
+		</div>
 
-		<sugar-activity ref="SugarActivity"></sugar-activity>
+		<sugar-activity ref="SugarActivity" v-on:initialized="initialized"></sugar-activity>
 	</div>
 
 	<script src="js/components/SugarActivity.js"></script>
