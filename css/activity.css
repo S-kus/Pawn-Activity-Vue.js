@@ -166,3 +166,7 @@ p {
 	border: 0;
 	border-radius: 5.5px;
 }
+
+#main-toolbar #insert-button {
+	background-image: url(../icons/insert-picture.svg);
+}

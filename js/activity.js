@@ -94,5 +94,15 @@ var app = new Vue({
 		onJournalLoadError: function(error) {
 			console.log("Error loading from journal");
 		},
+		insertBackground: function () {
+			var filters = [
+			  { mimetype: 'image/png' }, 
+			  { mimetype: 'image/jpeg' }
+			];
+			this.$refs.SugarJournal.insertFromJournal(filters)
+			.then(function (data, metadata) {
+				document.getElementById("app").style.backgroundImage = `url(${data})`;
+			});
+		},
 	}
 });
