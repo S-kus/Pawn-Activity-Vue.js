@@ -121,3 +121,14 @@ p {
 .tutorial-icon-text {
 	padding-left: 4px;
 }
+
+#main-toolbar #add-button {
+	background-image: url(../icons/add.svg);
+}
+
+.pawn {
+	background-image: url(../icons/pawn-icon.svg);
+	display: inline-block;
+	width: 65px;
+	height: 65px;
+}

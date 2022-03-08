@@ -12,6 +12,7 @@
 			href="lib/sugar-web/graphics/css/sugar-200dpi.css">
 		<link rel="stylesheet" href="css/activity.css">
 		<script src="lib/vue.min.js"></script>
+		<script src="js/Pawn.js"></script>
 		<script src="lib/require.js"></script>
 	</head>
 
@@ -21,7 +22,7 @@
 			<sugar-toolitem id="activity-button"></sugar-toolitem>
 
 			<!-- Add more buttons here -->
-
+			<sugar-toolitem id="add-button" title="Add Pawn" v-on:click="onAddClick"></sugar-toolitem>
 
 			<!-- Toolitems with class="pull-right" will be right aligned -->
 			<sugar-toolitem id="stop-button" title="Stop" class="pull-right"></sugar-toolitem>
@@ -31,7 +32,9 @@
 		<div id="user">
 			<h1>{{ displayText }}</h1>
 		</div>
-
+		<div id="pawns">
+			<pawn class="pawn" v-for="(pawn, i) in pawns" v-bind:key="i" v-bind:colors="pawn"></pawn>
+		</div>
 		<sugar-activity ref="SugarActivity" v-on:initialized="initialized"></sugar-activity>
 	</div>
 
