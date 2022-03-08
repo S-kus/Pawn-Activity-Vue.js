@@ -12,7 +12,6 @@
 			href="lib/sugar-web/graphics/css/sugar-200dpi.css">
 		<link rel="stylesheet" href="css/activity.css">
 		<script src="lib/vue.min.js"></script>
-		<script src="js/Pawn.js"></script>
 		<script src="lib/require.js"></script>
 	</head>
 
@@ -25,7 +24,7 @@
 			<sugar-toolitem id="add-button" title="Add Pawn" v-on:click="onAddClick"></sugar-toolitem>
 
 			<!-- Toolitems with class="pull-right" will be right aligned -->
-			<sugar-toolitem id="stop-button" title="Stop" class="pull-right"></sugar-toolitem>
+			<sugar-toolitem id="stop-button" title="Stop" class="pull-right" v-on:click="onStop"></sugar-toolitem>
 		</sugar-toolbar>
 
 		<sugar-activity ref="SugarActivity" v-on:initialized="initialized"></sugar-activity>
@@ -36,11 +35,16 @@
 			<pawn class="pawn" v-for="(pawn, i) in pawns" v-bind:key="i" v-bind:colors="pawn"></pawn>
 		</div>
 		<sugar-activity ref="SugarActivity" v-on:initialized="initialized"></sugar-activity>
+
+		<!-- Inside app element -->
+		<sugar-journal ref="SugarJournal" v-on:journal-data-loaded="onJournalDataLoaded" v-on:journal-load-error="onJournalLoadError" v-on:journal-new-instance="onJournalNewInstance"></sugar-journal>
 	</div>
 
 	<script src="js/components/SugarActivity.js"></script>
 	<script src="js/components/SugarToolbar.js"></script>
+	<script src="js/Pawn.js"></script>
 	<script src="js/activity.js"></script>
+	<script src="js/components/SugarJournal.js"></script>
 </body>
 
 </html>

@@ -27,5 +27,24 @@ var app = new Vue({
 			this.pawns.push(this.currentenv.user.colorvalue);
 			this.displayText = this.currentenv.user.name + " played";
 		},
+		onStop: function () {
+			// Save current pawns in Journal on Stop
+			var context = {
+				pawns: this.pawns
+			};
+			this.$refs.SugarJournal.saveData(context);
+		},
+		onJournalNewInstance: function() {
+			console.log("New instance");
+		},
+		
+		onJournalDataLoaded: function (data, metadata) {
+			console.log("Existing instance");
+			this.pawns = data.pawns;
+		},
+		
+		onJournalLoadError: function(error) {
+			console.log("Error loading from journal");
+		},
 	}
 });
