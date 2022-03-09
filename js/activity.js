@@ -36,19 +36,20 @@ var app = new Vue({
 			this.displayText = this.SugarL10n.get("Hello",  {name: this.currentenv.user.name});
 			this.SugarL10n.localize(this.l10n);
 		},
-		onAddClick: function () {
-			this.pawns.push(this.currentenv.user.colorvalue);
-			this.displayText = this.SugarL10n.get("Played", { name: this.currentenv.user.name });
-		
-			if (this.SugarPresence.isShared()) {
-				var message = {
-					user: this.SugarPresence.getUserInfo(),
-					content: {
-						action: 'update',
-						data: this.currentenv.user.colorvalue
+		onAddClick: function (event) {
+			for (var i = 0; i < event.count; i++) {
+				this.pawns.push(this.currentenv.user.colorvalue);
+				this.displayText = this.SugarL10n.get("Played", { name: this.currentenv.user.name });
+				if (this.SugarPresence.isShared()) {
+					var message = {
+						user: this.SugarPresence.getUserInfo(),
+						content: {
+							action: 'update',
+							data: this.currentenv.user.colorvalue
+						}
 					}
+					this.SugarPresence.sendMessage(message);
 				}
-				this.SugarPresence.sendMessage(message);
 			}
 		},
 		onNetworkDataReceived: function(msg) {
