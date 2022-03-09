@@ -194,3 +194,7 @@ p {
 	padding-top: 3px;
 	height: 40px;
 }
+
+#main-toolbar #help-button {
+	background-image: url(../icons/help.svg);
+}

@@ -20,6 +20,12 @@ var app = new Vue({
 		SugarPresence: null,
 		l10n: {
 			stringAddPawn: '',
+			stringTutoExplainTitle: '',
+			stringTutoExplainContent: '',
+			stringTutoAddTitle: '',
+			stringTutoAddContent: '',
+			stringTutoBackgroundTitle: '',
+			stringTutoBackgroundContent: '',
 		}
 	},
 	mounted: function () {
@@ -74,6 +80,30 @@ var app = new Vue({
 					}
 				});
 			}
+		},
+		onHelp: function () {
+			var steps = [
+				{
+					element: "",
+					orphan: true,
+					placement: "bottom",
+					title: this.l10n.stringTutoExplainTitle,
+					content: this.l10n.stringTutoExplainContent
+				},
+				{
+					element: "#add-button",
+					placement: "right",
+					title: this.l10n.stringTutoAddTitle,
+					content: this.l10n.stringTutoAddContent
+				},
+				{
+					element: "#insert-button",
+					placement: "bottom",
+					title: this.l10n.stringTutoBackgroundTitle,
+					content: this.l10n.stringTutoBackgroundContent
+				}
+			];
+			this.$refs.SugarTutorial.show(steps);
 		},
 		onStop: function () {
 			// Save current pawns in Journal on Stop

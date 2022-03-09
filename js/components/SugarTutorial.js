@@ -47,12 +47,15 @@ Vue.component('sugar-tutorial', {
 				steps: steps,
 				onStart: function (tour) {
 					vm.$emit('start', tour);
+					console.log("Start");
 				},
 				onShow: function (tour) {
 					vm.$emit('show', tour);
+					console.log("Tour");
 				},
 				onEnd: function (tour) {
 					vm.$emit('end', tour);
+					console.log("End");
 				},
 			});
 			tour.init();
