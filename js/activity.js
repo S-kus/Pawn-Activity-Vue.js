@@ -31,12 +31,6 @@ var app = new Vue({
 	mounted: function () {
 		this.SugarL10n = this.$refs.SugarL10n;
 		this.SugarPresence = this.$refs.SugarPresence;
-		let vm = this;
-		if (this.$root.$refs.SugarL10n) {
-			this.$root.$refs.SugarL10n.$on('localized', function () {
-				vm.$root.$refs.SugarL10n.localize(vm.l10n);
-			});
-		}
 	},
 	methods: {
 		initialized: function () {
@@ -46,6 +40,7 @@ var app = new Vue({
 		// Handles localized event
 		localized: function () {
 			this.displayText = this.SugarL10n.get("Hello",  {name: this.currentenv.user.name});
+			this.SugarL10n.localize(this.l10n);
 		},
 		onAddClick: function (event) {
 			for (var i = 0; i < event.count; i++) {
