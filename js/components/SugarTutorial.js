@@ -21,7 +21,8 @@ Vue.component('sugar-tutorial', {
 		show: function (steps) {
 				// console.log(steps);
 				introJs().setOptions({
-					steps: steps
+					steps: steps,
+					showBullets: false
 				  }).start();
 		}
 	}
