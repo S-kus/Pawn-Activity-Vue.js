@@ -21,9 +21,11 @@ Vue.component('sugar-tutorial', {
 		show: function (steps) {
 				// console.log(steps);
 				introJs().setOptions({
+					tooltipClass: 'customTooltip',
 					steps: steps,
 					showBullets: false
 				  }).start();
+				  document.querySelector('.introjs-nextbutton').classList.remove('introjs-button');
 		}
 	}
 });
