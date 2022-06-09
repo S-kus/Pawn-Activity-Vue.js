@@ -82,22 +82,32 @@ var app = new Vue({
 			}
 		},
 		onHelp: function () {
-			var steps= [{
-				title: this.l10n.stringTutoExplainTitle,
-				intro: this.l10n.stringTutoExplainContent
-			  },
-			  {
-				element: document.querySelector('#add-button'),
-				position: 'right',
-				title: this.l10n.stringTutoAddTitle,
-				intro: this.l10n.stringTutoAddContent
-			  },
-			  {
-				element: document.querySelector("#insert-button"),
-				position: 'bottom',
-				title: this.l10n.stringTutoBackgroundTitle,
-				intro: this.l10n.stringTutoBackgroundContent
-			  }];
+			var steps= [
+				{
+					element: document.querySelector('#app'),
+					popover: {
+						title: 'Title on Popover',
+						description: 'Body of the popover',
+						position: 'mid-center'
+					}
+				},
+				{
+					element: document.querySelector('#add-button'),
+					popover: {
+						title: 'Title on Popover',
+						description: 'Body of the popover',
+						position: 'right'
+					}
+				},
+				{
+					element: document.querySelector('#insert-button'),
+					popover: {
+						title: 'Title on Popover',
+						description: 'Body of the popover',
+						position: 'bottom'
+					}
+				},
+			];
 			this.$refs.SugarTutorial.show(steps);
 		},
 		onStop: function () {

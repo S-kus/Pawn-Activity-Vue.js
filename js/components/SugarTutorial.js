@@ -20,10 +20,17 @@ Vue.component('sugar-tutorial', {
 	methods: {
 		show: function (steps) {
 				// console.log(steps);
-				introJs().setOptions({
-					steps: steps,
-					showBullets: false
-				  }).start();
+				const driver = new Driver({
+					allowClose: true,
+					doneBtnText: 'Done',
+					closeBtnText: 'Skip',     
+					nextBtnText: 'Next',              
+					prevBtnText: 'Prev',
+				});
+				driver.defineSteps(steps);
+				driver.start();
+
+				event.stopPropagation();
 		}
 	}
 });
