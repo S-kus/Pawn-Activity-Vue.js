@@ -25,7 +25,6 @@ Vue.component('sugar-tutorial', {
 					steps: steps,
 					showBullets: false
 				  }).start();
-				  document.querySelector('.introjs-nextbutton').classList.remove('introjs-button');
 		}
 	}
 });
