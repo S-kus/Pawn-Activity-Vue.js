@@ -84,7 +84,7 @@ var app = new Vue({
 		onHelp: function () {
 			var steps= [{
 				title: this.l10n.stringTutoExplainTitle,
-				intro: this.l10n.stringTutoExplainContent
+				intro: '<img src="./icons/pawn-icon.svg"><img/>'+this.l10n.stringTutoExplainContent
 			  },
 			  {
 				element: document.querySelector('#add-button'),

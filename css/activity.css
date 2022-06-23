@@ -282,7 +282,14 @@ p {
 	color: white;
 	padding: 6px 20px 6px 10px;
 }
-
+.customTooltip .introjs-tooltiptext {
+	color: #000000;
+	line-height: 1.42857143;
+	display: flex;
+ }
+ .customTooltip .introjs-tooltiptext img {
+	width: 5px;
+ }
 .customTooltip .introjs-disabled {
 	color: black;
 }
