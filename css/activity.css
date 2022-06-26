@@ -201,7 +201,8 @@ p {
 	background-image: url(../icons/help.svg);
 }
 
-/* UI for tutorial */
+/* UI styling for introJs-tutorial */
+
 .introjs-overlay {
 	background-color: #000 !important;
 	opacity: .8 !important;
@@ -211,6 +212,7 @@ p {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif!important;
 	border-radius: 6px !important;
 	padding: 2px 1px !important;
+	font-size: 14px !important;
 }
 
 .introjs-helperLayer{
@@ -218,20 +220,27 @@ p {
 	opacity: 0.6 !important;
 }
 
-.introjs-tooltip-header {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif!important;
-	color : #ffffff !important;
-	text-shadow: none !important;
-	background-color: #808080 !important;
-	margin: 0 !important;
-	padding: 0px 10px !important;
-	border-bottom: 1px solid #ebebeb !important;
-	border-radius: 5px 5px 0 0 !important;
+.customTooltip .introjs-tooltip-header {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color : #ffffff;
+	text-shadow: none;
+	background-color: #808080;
+	margin: 0;
+	padding: 0px 10px;
+	border-bottom: 1px solid #ebebeb;
+	border-radius: 5px 5px 0 0;
 }
-.introjs-tooltip-title {
-	font-size: 14px !important;
-	padding: 0px 8px !important;
-	font-weight: 800 !important;
+
+.customTooltip .introjs-tooltip-title {
+	font-size: 14px;
+	padding: 0px 8px;
+	font-weight: 800;
+}
+
+.customTooltip .introjs-tooltiptext {
+	display: flex;
+	color: #000000;
+	line-height: 1.42857143;
 }
 
 .customTooltip .introjs-skipbutton {
@@ -242,9 +251,10 @@ p {
 	height: 25px;
 	background-size: 25px 25px;
 	margin-top: 2px;
+	padding: 0px;
 	text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .customTooltip .introjs-nextbutton::before {
@@ -255,6 +265,7 @@ p {
 	height: 20px;
 	background-size: 20px 20px;
 }
+
 .customTooltip .introjs-prevbutton::before {
 	content: "";
 	margin-right: 6px;
@@ -265,51 +276,45 @@ p {
 }
 
 .customTooltip .introjs-tooltipbuttons {
-	display: flex; 
-	flex-wrap:wrap; 
-	justify-content: center; 
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	border-top: 0px;
+	padding: 0px;
+	text-align: center;
+	white-space: normal;
 }
+
 .customTooltip .introjs-button {
-	border-radius: 22px ;
+	text-shadow: none;
+	border-radius: 22px;
 	margin: 5px 8px 8px 8px;
 	width: fit-content;
 	background-color: #808080 !important;
-	border: 2px solid #808080 !important;
 	display: flex !important;
 	align-items: center !important;
-	color: white;
+	color: white !important;
 	padding: 6px 20px 6px 10px;
+	border: 0px;
 }
-.customTooltip .introjs-tooltiptext {
-	color: #000000;
-	line-height: 1.42857143;
-	display: flex;
- }
- .customTooltip .introjs-tooltiptext img {
-	width: 5px;
- }
+
+.customTooltip .introjs-button:focus {
+	-webkit-box-shadow: 0 0 0 0rem rgba(158, 158, 158, .5);
+	box-shadow: 0 0 0 0rem rgba(158, 158, 158, .5);
+	border: 0px;
+	background-color: #808080 !important;
+}
+
 .customTooltip .introjs-disabled {
-	color: black;
-}
-/* .introjs-tooltiptext {
-	padding: 9px 14px !important; 
-	margin: 8px 0px 10px 0px !important;
+	color: black !important;
+	border: 0px;
+	opacity: .65;
 }
 
-.introjs-tooltipbuttons {
-	padding: 8px !important;
-	border-top: none !important;
+.customTooltip .introjs-disabled:focus {
+	-webkit-box-shadow: 0 0 0 0rem rgba(158, 158, 158, .5);
+	box-shadow: 0 0 0 0rem rgba(158, 158, 158, .5);
+	border: 0px;
 }
-
-.introjs-skipbutton {
-	color: #fff !important;
-}
-
-.introjs-button{
-	padding: 6px 10px !important;
-	font-size: 14px !important;
-	border-radius: 6px !important;
-}  */
-

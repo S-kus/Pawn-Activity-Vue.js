@@ -87,13 +87,13 @@ var app = new Vue({
 				intro: '<img src="./icons/pawn-icon.svg"><img/>'+this.l10n.stringTutoExplainContent
 			  },
 			  {
-				element: document.querySelector('#add-button'),
+				element: '#add-button',
 				position: 'right',
 				title: this.l10n.stringTutoAddTitle,
 				intro: this.l10n.stringTutoAddContent
 			  },
 			  {
-				element: document.querySelector("#insert-button"),
+				element: '#insert-button',
 				position: 'bottom',
 				title: this.l10n.stringTutoBackgroundTitle,
 				intro: this.l10n.stringTutoBackgroundContent
