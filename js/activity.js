@@ -7,25 +7,27 @@ requirejs.config({
 });
 
 // Vue main app
-var app = new Vue({
-	el: '#app',
+const app = Vue.createApp({
+	// el: '#app',
 	components: {
 		'pawn': Pawn
 	},
-	data: {
-		displayText: '',
-		currentenv: null,
-		pawns: [],
-		SugarL10n: null,
-		SugarPresence: null,
-		l10n: {
-			stringAddPawn: '',
-			stringTutoExplainTitle: '',
-			stringTutoExplainContent: '',
-			stringTutoAddTitle: '',
-			stringTutoAddContent: '',
-			stringTutoBackgroundTitle: '',
-			stringTutoBackgroundContent: '',
+	data() {
+		return {
+			displayText: '',
+			currentenv: null,
+			pawns: [],
+			SugarL10n: null,
+			SugarPresence: null,
+			l10n: {
+				stringAddPawn: '',
+				stringTutoExplainTitle: '',
+				stringTutoExplainContent: '',
+				stringTutoAddTitle: '',
+				stringTutoAddContent: '',
+				stringTutoBackgroundTitle: '',
+				stringTutoBackgroundContent: '',
+			}
 		}
 	},
 	mounted: function () {
@@ -132,3 +134,14 @@ var app = new Vue({
 		},
 	}
 });
+
+app.mount('#app');
+app
+  .component('sugar-toolitem',SugarToolitem)
+  .component('sugar-toolbar',SugarToolbar)
+  .component('sugar-activity',SugarActivity)
+  .component('sugar-journal',SugarJournal)
+  .component('sugar-localization',SugarLocalization)
+  .component('sugar-presence',SugarPresence)
+  .component('sugar-tutorial',SugarTutorial)
+console.log(app);

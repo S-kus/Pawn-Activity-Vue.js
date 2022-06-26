@@ -1,5 +1,5 @@
 // Tutorial component based on bootstrap tour
-Vue.component('sugar-tutorial', {
+const SugarTutorial= {
 	data: function () {
 		return {
 			l10n: {
@@ -12,7 +12,7 @@ Vue.component('sugar-tutorial', {
 	mounted() {
 		let vm = this;
 		if (this.$root.$refs.SugarL10n) {
-			this.$root.$refs.SugarL10n.$on('localized', function () {
+			this.$root.$refs.SugarL10n.$emit('localized', function () {
 				vm.$root.$refs.SugarL10n.localize(vm.l10n);
 			});
 		}
@@ -34,4 +34,4 @@ Vue.component('sugar-tutorial', {
 				  }).start();
 		}
 	}
-});
+};
