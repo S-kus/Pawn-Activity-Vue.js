@@ -225,7 +225,7 @@ tr.introjs-showElement>th {
 	clear: both
 }
 
-/* .introjs-tooltipbuttons {
+.introjs-tooltipbuttons {
 	border-top: 1px solid #e0e0e0;
 	padding: 10px;
 	text-align: right;
@@ -341,7 +341,7 @@ tr.introjs-showElement>th {
 	background-color: #f4f4f4;
 	background-image: none;
 	text-decoration: none
-} */
+}
 
 .introjs-hidden {
 	display: none

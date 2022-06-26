@@ -88,7 +88,7 @@ var app = new Vue({
 			  },
 			  {
 				element: '#add-button',
-				position: 'right',
+				position: 'bottom',
 				title: this.l10n.stringTutoAddTitle,
 				intro: this.l10n.stringTutoAddContent
 			  },
