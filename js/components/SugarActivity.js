@@ -1,6 +1,6 @@
 const SugarActivity= {
 	name: 'SugarActivity',
-	data: function() {
+	data() {
 		return {
 			activity: null,
 			environment: null
@@ -10,19 +10,22 @@ const SugarActivity= {
 		var vm = this;
 		requirejs(["sugar-web/activity/activity", "sugar-web/env"], function (activity, env) {
 			vm.activity = activity;
+			console.log(env.getEnvironment);
 			env.getEnvironment(function (err, environment) {
 				vm.environment = environment;
 				activity.setup();
+				// console.log("inside getEnvirnment function!");
+				// console.log(environment);
 				vm.$emit('initialized');
 			});
 		});
 	},
 	methods: {
-		getActivity: function () {
+		getActivity() {
 			return this.activity;
 		},
 
-		getEnvironment: function () {
+		getEnvironment() {
 			return this.environment;
 		}
 	}

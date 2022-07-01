@@ -24,7 +24,7 @@ const SugarToolitem= {
 		'active': Boolean,
 		'icon': String
 	},
-	data: function () {
+	data() {
 		return {
 			paletteObject: null
 		}
@@ -40,7 +40,12 @@ const SugarToolitem= {
 		var vm = this;
 		if (vm.id && vm.paletteClass && vm.paletteFile) {
 			requirejs([vm.paletteFile], function (palette) {
+				console.log(vm.id);
+				console.log("before calling palette function");
+				console.log(palette);
+				console.log(document.getElementById(vm.id));
 				vm.paletteObject = new palette[vm.paletteClass](document.getElementById(vm.id), vm.paletteTitle);
+				console.log(vm.paletteObject);
 				if (vm.paletteEvent) {
 					vm.paletteObject.addEventListener(vm.paletteEvent, function (event) {
 						vm.$emit(vm.paletteEvent, event, vm.paletteObject);
@@ -58,23 +63,23 @@ const SugarToolbar= {
 			<slot></slot>
 		</div>
 	`,
-	data: function () {
+	data() {
 		return {
 			hidden: false
 		}
 	},
 	methods: {
-		isHidden: function () {
+		isHidden() {
 			return this.hidden;
 		},
 
 		// Handle fullscreen mode
-		hide: function () {
+		hide() {
 			this.hidden = true;
 
 		},
 
-		show: function () {
+		show() {
 			this.hidden = false;
 		},
 	}
