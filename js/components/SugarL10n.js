@@ -51,13 +51,14 @@ const SugarLocalization= {
 				});
 			});
 			//Activity initialization check
-
-			var SugarActivity = vm.$root.$children.find(function (child) {
-				return child.$options.name == 'SugarActivity';
-			});
-			SugarActivity.$on('initialized', function () {
-				vm.activityInitialized = true;
-			});
+			var SugarActivity;
+			if(vm.$root.$refs.SugarActivity) {
+				SugarActivity= vm.$root.$refs.SugarActivity;
+			}
+			SugarActivity.$emit('initialized',
+				vm.activityInitialized = true
+			);
+			console.log(vm.activityInitialized);
 		}
 	},
 	methods: {

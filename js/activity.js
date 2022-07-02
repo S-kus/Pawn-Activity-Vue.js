@@ -37,21 +37,22 @@ const app = Vue.createApp({
 			}
 		}
 	},
-	mounted: function () {
+	mounted() {
+		console.log("inside app mounted()");
 		this.SugarL10n = this.$refs.SugarL10n;
 		this.SugarPresence = this.$refs.SugarPresence;
 	},
 	methods: {
-		initialized: function () {
+		initialized() {
 			// Sugarizer initialized
 			this.currentenv = this.$refs.SugarActivity.getEnvironment();
 		},
 		// Handles localized event
-		localized: function () {
+		localized() {
 			this.displayText = this.SugarL10n.get("Hello",  {name: this.currentenv.user.name});
 			this.SugarL10n.localize(this.l10n);
 		},
-		onAddClick: function (event) {
+		onAddClick(event) {
 			for (var i = 0; i < event.count; i++) {
 				this.pawns.push(this.currentenv.user.colorvalue);
 				this.displayText = this.SugarL10n.get("Played", { name: this.currentenv.user.name });
@@ -67,7 +68,7 @@ const app = Vue.createApp({
 				}
 			}
 		},
-		onNetworkDataReceived: function(msg) {
+		onNetworkDataReceived(msg) {
 			switch (msg.content.action) {
 				case 'init':
 					this.pawns = msg.content.data;
@@ -78,7 +79,7 @@ const app = Vue.createApp({
 					break;
 			}
 		},
-		onNetworkUserChanged: function(msg) {
+		onNetworkUserChanged(msg) {
 			// Handling only by the host
 			if (this.SugarPresence.isHost) {
 				this.SugarPresence.sendMessage({
@@ -90,7 +91,7 @@ const app = Vue.createApp({
 				});
 			}
 		},
-		onHelp: function () {
+		onHelp() {
 			var steps= [{
 				title: this.l10n.stringTutoExplainTitle,
 				intro: '<img src="./icons/pawn-icon.svg"><img/>'+this.l10n.stringTutoExplainContent
@@ -109,27 +110,27 @@ const app = Vue.createApp({
 			  }];
 			this.$refs.SugarTutorial.show(steps);
 		},
-		onStop: function () {
+		onStop() {
 			// Save current pawns in Journal on Stop
 			var context = {
 				pawns: this.pawns
 			};
 			this.$refs.SugarJournal.saveData(context);
 		},
-		onJournalNewInstance: function() {
+		onJournalNewInstance() {
 			console.log("New instance");
 		},
-		onJournalDataLoaded: function (data, metadata) {
+		onJournalDataLoaded(data, metadata) {
 			console.log("Existing instance");
 			this.pawns = data.pawns;
 		},
-		onJournalSharedInstance: function() {
+		onJournalSharedInstance() {
 			console.log("Shared instance");
 		},
-		onJournalLoadError: function(error) {
+		onJournalLoadError(error) {
 			console.log("Error loading from journal");
 		},
-		insertBackground: function () {
+		insertBackground() {
 			var filters = [
 			  { mimetype: 'image/png' }, 
 			  { mimetype: 'image/jpeg' }
@@ -142,5 +143,5 @@ const app = Vue.createApp({
 	}
 });
 
-app.mount('#app');
 console.log(app);
+app.mount('#app');
