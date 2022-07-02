@@ -10,7 +10,14 @@ requirejs.config({
 const app = Vue.createApp({
 	// el: '#app',
 	components: {
-		'pawn': Pawn
+		'pawn': Pawn,
+		'sugar-toolitem': SugarToolitem,
+		'sugar-toolbar': SugarToolbar,
+		'sugar-activity': SugarActivity,
+		'sugar-journal': SugarJournal,
+		'sugar-localization': SugarLocalization,
+		'sugar-presence': SugarPresence,
+		'sugar-tutorial': SugarTutorial,
 	},
 	data() {
 		return {
@@ -136,12 +143,4 @@ const app = Vue.createApp({
 });
 
 app.mount('#app');
-app
-  .component('sugar-toolitem',SugarToolitem)
-  .component('sugar-toolbar',SugarToolbar)
-  .component('sugar-activity',SugarActivity)
-  .component('sugar-journal',SugarJournal)
-  .component('sugar-localization',SugarLocalization)
-  .component('sugar-presence',SugarPresence)
-  .component('sugar-tutorial',SugarTutorial)
 console.log(app);

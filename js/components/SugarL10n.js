@@ -52,13 +52,10 @@ const SugarLocalization= {
 			});
 			//Activity initialization check
 
-			if(vm.$root.$refs.SugarActivity)
-				var SugarActivity = vm.$root.$refs.SugarActivity;
-			// var SugarActivity = vm.$root.$children.find(function (child) {
-			// 	return child.$options.name == 'SugarActivity';
-			// });
-			
-			SugarActivity.$emit('initialized', function () {
+			var SugarActivity = vm.$root.$children.find(function (child) {
+				return child.$options.name == 'SugarActivity';
+			});
+			SugarActivity.$on('initialized', function () {
 				vm.activityInitialized = true;
 			});
 		}

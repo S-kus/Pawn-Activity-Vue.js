@@ -40,12 +40,7 @@ const SugarToolitem= {
 		var vm = this;
 		if (vm.id && vm.paletteClass && vm.paletteFile) {
 			requirejs([vm.paletteFile], function (palette) {
-				console.log(vm.id);
-				console.log("before calling palette function");
-				console.log(palette);
-				console.log(document.getElementById(vm.id));
 				vm.paletteObject = new palette[vm.paletteClass](document.getElementById(vm.id), vm.paletteTitle);
-				console.log(vm.paletteObject);
 				if (vm.paletteEvent) {
 					vm.paletteObject.addEventListener(vm.paletteEvent, function (event) {
 						vm.$emit(vm.paletteEvent, event, vm.paletteObject);
