@@ -1,19 +1,19 @@
 const SugarDevice= {
 	/*html*/
 	template: `<div style="display: none">{{ watchId }}</div>`,
-	data: function () {
+	data() {
 		return {
 			readyToWatch: false,
 			frequency: null
 		}
 	},
-	created: function () {
+	created() {
 		var cordovaScript = document.createElement('script');
 		cordovaScript.setAttribute('type', 'text/javascript');
 		cordovaScript.setAttribute('src', '../../cordova.js');
 		document.head.appendChild(cordovaScript);
 	},
-	mounted: function () {
+	mounted() {
 		var vm = this;
 		//Accelerometer
 		if (this.isMobile()) {
@@ -24,7 +24,7 @@ const SugarDevice= {
 
 	},
 	computed: {
-		watchId: function () {
+		watchId() {
 			if (this.readyToWatch && this.frequency) {
 				return navigator.accelerometer.watchAcceleration(this.accelerationCallback, null, { frequency: this.frequency });
 			}
@@ -93,7 +93,7 @@ const SugarDevice= {
 			}
 		},
 
-		watchAcceleration: function (frequency) {
+		watchAcceleration(frequency) {
 			var vm = this;
 			var accelerometer = new Accelerometer({ frequency: frequency });
 			if (accelerometer) {
@@ -106,11 +106,11 @@ const SugarDevice= {
 			}
 		},
 
-		accelerationCallback: function (acceleration) {
+		accelerationCallback(acceleration) {
 			this.$emit('acceleration-callback', acceleration);
 		},
 
-		getLocation: function () {
+		getLocation() {
 			return new Promise((resolve, reject) => {
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(resolve);
@@ -120,7 +120,7 @@ const SugarDevice= {
 			})
 		},
 
-		vibrate: function (value) {
+		vibrate(value) {
 			navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
 			if (navigator.vibrate) {
@@ -128,7 +128,7 @@ const SugarDevice= {
 			}
 		}
 	},
-	beforeDestroy: function () {
+	beforeDestroy() {
 		navigator.accelerometer.clearWatch(this.watchId);
 	}
 };

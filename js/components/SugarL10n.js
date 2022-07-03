@@ -19,19 +19,19 @@ const SugarLocalization= {
 		}
 	},
 	computed: {
-		readyToEmit: function () {
+		readyToEmit() {
 			return (this.dictionary != null) && this.activityInitialized;
 		}
 	},
 	watch: {
-		readyToEmit: function (newVal, oldVal) {
+		readyToEmit(newVal, oldVal) {
 			if (newVal) {
 				this.$emit("localized");
 				this.eventReceived = true;
 			}
 		}
 	},
-	mounted: function () {
+	mounted() {
 		var vm = this;
         if (vm.l10n == null) {
             requirejs(["sugar-web/env", "webL10n"], function (env, webL10n) {
@@ -64,7 +64,7 @@ const SugarLocalization= {
 	},
 	methods: {
 		// Get a string with parameters
-		get: function (str, params) {
+		get(str, params) {
 			var out = '';
 			
 			if (!this.dictionary) {
@@ -92,7 +92,7 @@ const SugarLocalization= {
 		},
 
 		// Get values for a set of strings on the form of {stringKey1: '', stringKey2: '', ...}
-		localize: function (strings) {
+		localize(strings) {
 			var vm = this;
 			Object.keys(strings).forEach(function (key, index) {
 				strings[key] = vm.get(key.substr(6));
@@ -100,7 +100,7 @@ const SugarLocalization= {
 		},
 
 		// Convert a UNIX timestamp to Sugarizer time elapsed string
-		localizeTimestamp: function (timestamp) {
+		localizeTimestamp(timestamp) {
 			var maxlevel = 2;
 			var levels = 0;
 			var time_period = '';

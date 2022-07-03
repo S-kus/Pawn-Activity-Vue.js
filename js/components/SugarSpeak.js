@@ -3,7 +3,7 @@ Vue.component('sugar-speak', {
 	template: `
 		<script src="../Speak.activity/mespeak.js" type="text/javascript"></script>
 	`,
-	data: function () {
+	data() {
 		return {
 			configDone: false,
 			userLanguage: '',

@@ -38,7 +38,6 @@ const app = Vue.createApp({
 		}
 	},
 	mounted() {
-		console.log("inside app mounted()");
 		this.SugarL10n = this.$refs.SugarL10n;
 		this.SugarPresence = this.$refs.SugarPresence;
 	},
@@ -143,5 +142,4 @@ const app = Vue.createApp({
 	}
 });
 
-console.log(app);
 app.mount('#app');

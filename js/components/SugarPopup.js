@@ -1,5 +1,5 @@
 const SugarPopup= {
-	data: function () {
+	data() {
 		return {
 			humane: null
 		}

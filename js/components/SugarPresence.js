@@ -1,5 +1,5 @@
 const SugarPresence= {
-	data: function () {
+	data() {
 		return {
 			activity: null,
 			LZString: null,
@@ -32,7 +32,7 @@ const SugarPresence= {
 	},
 	methods: {
 		
-		isConnected: function () {
+		isConnected() {
 			return this.presence != null && this.presence.isConnected();
 		},
 
@@ -40,20 +40,20 @@ const SugarPresence= {
 			return this.presence != null && this.presence.getSharedInfo() != null;
 		},
 
-		getSharedInfo: function () {
+		getSharedInfo() {
 			return this.presence.getSharedInfo();
 		},
 
-		getUserInfo: function () {
+		getUserInfo() {
 			return this.presence.getUserInfo();
 		},
 
-		sendMessage: function (message) {
+		sendMessage(message) {
 			var compressedMsg = this.LZString.compressToUTF16(JSON.stringify(message));
 			this.presence.sendMessage(this.presence.getSharedInfo().id, compressedMsg);
 		},
 
-		onShared: function (event, paletteObject) {
+		onShared(event, paletteObject) {
 			paletteObject.popDown();
 			var vm = this;
 			console.log("Want to share");
@@ -63,7 +63,7 @@ const SugarPresence= {
 			});
 		},
 
-		onNetworkDataReceived: function (msg) {
+		onNetworkDataReceived(msg) {
 			var decompressedMsg = JSON.parse(this.LZString.decompressFromUTF16(msg));
 
 			if (this.getUserInfo().networkId === decompressedMsg.user.networkId) {
@@ -73,7 +73,7 @@ const SugarPresence= {
 			this.$emit('data-received', decompressedMsg);
 		},
 
-		onNetworkUserChanged: function (msg) {
+		onNetworkUserChanged(msg) {
 			if (this.getUserInfo().networkId === msg.user.networkId) {
 				return;  	// Return if user himself changed
 			}

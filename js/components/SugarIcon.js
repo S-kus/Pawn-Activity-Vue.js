@@ -1,5 +1,5 @@
 const SugarIcon= {
-	data: function () {
+	data() {
 		return {
 			icon: null
 		}
@@ -11,11 +11,11 @@ const SugarIcon= {
 		});
 	},
 	methods: {
-		colorize: function (element, colors, callback) {
+		colorize(element, colors, callback) {
 			this.icon.colorize(element, colors, callback);
 		},
 
-		generateIconWithColors: function (path, colors) {
+		generateIconWithColors(path, colors) {
 			return new Promise((resolve, reject) => {
 				requirejs([`text!${path}`], function (icon) {
 					icon = icon.replace(/(stroke)_color\s\"#?\w*\"/, `stroke_color "${colors.stroke}"`);
@@ -25,7 +25,7 @@ const SugarIcon= {
 			});
 		},
 
-		colorizeIcon: function (element, colors) {
+		colorizeIcon(element, colors) {
 			let vm = this;
 			return new Promise((resolve, reject) => {
 				var path = getBackgroundURL(element);

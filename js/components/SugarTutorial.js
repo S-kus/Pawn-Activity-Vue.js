@@ -1,6 +1,6 @@
 // Tutorial component based on bootstrap tour
 const SugarTutorial= {
-	data: function () {
+	data() {
 		return {
 			l10n: {
 				stringTutoPrev: 'Prev',
@@ -22,8 +22,7 @@ const SugarTutorial= {
         window.setTimeout(localizeCheck, 100);
 	},
 	methods: {
-		show: function (steps) {
-				// console.log(steps);
+		show(steps) {
 				steps= steps.filter(function (obj) {
 					return !('element' in obj) || ((obj.element).length && document.querySelector(obj.element) && document.querySelector(obj.element).style.display != 'none');
 				});

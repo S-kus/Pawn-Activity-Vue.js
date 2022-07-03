@@ -29,13 +29,13 @@ const SugarToolitem= {
 			paletteObject: null
 		}
 	},
-	created: function () {
+	created() {
 		// v-visible="condition" (Use this with palettes to avoid errors)
 		app.directive('visible', function (el, binding) {
 			el.style.visibility = !!binding.value ? 'visible' : 'hidden';
 		});
 	},
-	mounted: function () {
+	mounted() {
 		// Create palette if present
 		var vm = this;
 		if (vm.id && vm.paletteClass && vm.paletteFile) {

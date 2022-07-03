@@ -1,5 +1,5 @@
 const SugarJournal= {
-	data: function () {
+	data() {
 		return {
 			activity: null,
 			LZString: null
@@ -29,7 +29,7 @@ const SugarJournal= {
 		});
 	},
 	methods: {
-		saveData: function (context) {
+		saveData(context) {
 			var compressedData = this.LZString.compressToUTF16(JSON.stringify(context));
 			this.activity.getDatastoreObject().setDataAsText(compressedData);
 			this.activity.getDatastoreObject().save(function (error) {
@@ -41,7 +41,7 @@ const SugarJournal= {
 			});
 		},
 
-		insertFromJournal: function (type) {
+		insertFromJournal(type) {
 			var typeParameters = [null, null, null, null];
 			for (var i = 0; i < typeParameters.length; i++) {
 				typeParameters[i] = type[i];
@@ -68,7 +68,7 @@ const SugarJournal= {
 			});
 		},
 
-		createEntry: function (data, metadata) {
+		createEntry(data, metadata) {
 			return new Promise((resolve, reject) => {
 				requirejs(["sugar-web/datastore"], function (datastore) {
 					datastore.create(metadata, function () {
