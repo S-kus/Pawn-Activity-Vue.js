@@ -9,7 +9,6 @@ const SugarToolitem= {
 			:class="{ active: active }"
 			:style="{ backgroundImage: icon ? 'url('+ icon +')' : '' }"
 			v-bind="$attrs" 
-			v-on="$listeners" 
 			:disabled="disabled" 
 		></button>
 	`,
@@ -28,12 +27,6 @@ const SugarToolitem= {
 		return {
 			paletteObject: null
 		}
-	},
-	created() {
-		// v-visible="condition" (Use this with palettes to avoid errors)
-		app.directive('visible', function (el, binding) {
-			el.style.visibility = !!binding.value ? 'visible' : 'hidden';
-		});
 	},
 	mounted() {
 		// Create palette if present

@@ -8,7 +8,6 @@ requirejs.config({
 
 // Vue main app
 const app = Vue.createApp({
-	// el: '#app',
 	components: {
 		'pawn': Pawn,
 		'sugar-toolitem': SugarToolitem,
@@ -40,6 +39,12 @@ const app = Vue.createApp({
 	mounted() {
 		this.SugarL10n = this.$refs.SugarL10n;
 		this.SugarPresence = this.$refs.SugarPresence;
+	},
+	created() {
+		// v-visible="condition" (Use this with palettes to avoid errors)
+		app.directive('visible', function (el, binding) {
+			el.style.visibility = !!binding.value ? 'visible' : 'hidden';
+		});
 	},
 	methods: {
 		initialized() {
