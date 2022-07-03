@@ -11,15 +11,15 @@ const SugarTutorial= {
 	},
 	mounted() {
 		let vm = this;
-        var localizeCheck = function() {
-            var SugarL10n = vm.$root.$refs.SugarL10n;
-            if (SugarL10n.activityInitialized) {
-                SugarL10n.localize(vm.l10n)
-            } else {
-                window.setTimeout(localizeCheck, 100);
-            }
-        }
-        window.setTimeout(localizeCheck, 100);
+		var localizeCheck = function() {
+			var SugarL10n = vm.$root.$refs.SugarL10n;
+			if (SugarL10n.activityInitialized) {
+				SugarL10n.localize(vm.l10n)
+			} else {
+				window.setTimeout(localizeCheck, 100);
+			}
+		}
+		window.setTimeout(localizeCheck, 100);
 	},
 	methods: {
 		show(steps) {

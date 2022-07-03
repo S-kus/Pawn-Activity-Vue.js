@@ -33,34 +33,34 @@ const SugarLocalization= {
 	},
 	mounted() {
 		var vm = this;
-        if (vm.l10n == null) {
-            requirejs(["sugar-web/env", "webL10n"], function (env, webL10n) {
-                env.getEnvironment(function (err, environment) {
-                    vm.l10n = webL10n;
-                    var defaultLanguage = (typeof chrome != 'undefined' && chrome.app && chrome.app.runtime) ? chrome.i18n.getUILanguage() : navigator.language;
-                    var language = environment.user ? environment.user.language : defaultLanguage;
-                    webL10n.language.code = language;
-                    window.addEventListener("localized", function () {
-                        if (!vm.eventReceived) {
-                            vm.code = language;
-                            vm.dictionary = vm.l10n.dictionary;
-                        } else if (webL10n.language.code != language) {
-                            webL10n.language.code = language;
-                        }
-                    });
-                });
-            });
-            //Activity initialization check
-            var activityCheck = function() {
-                var SugarActivity = vm.$root.$refs.SugarActivity;
-                if (SugarActivity.getEnvironment()) {
-                    vm.activityInitialized = true;
-                } else {
-                    window.setTimeout(activityCheck, 100);
-                }
-            }
-            window.setTimeout(activityCheck, 100);
-        }
+		if (vm.l10n == null) {
+			requirejs(["sugar-web/env", "webL10n"], function (env, webL10n) {
+				env.getEnvironment(function (err, environment) {
+					vm.l10n = webL10n;
+					var defaultLanguage = (typeof chrome != 'undefined' && chrome.app && chrome.app.runtime) ? chrome.i18n.getUILanguage() : navigator.language;
+					var language = environment.user ? environment.user.language : defaultLanguage;
+					webL10n.language.code = language;
+					window.addEventListener("localized", function () {
+						if (!vm.eventReceived) {
+							vm.code = language;
+							vm.dictionary = vm.l10n.dictionary;
+						} else if (webL10n.language.code != language) {
+							webL10n.language.code = language;
+						}
+					});
+				});
+			});
+			//Activity initialization check
+			var activityCheck = function() {
+				var SugarActivity = vm.$root.$refs.SugarActivity;
+				if (SugarActivity.getEnvironment()) {
+					vm.activityInitialized = true;
+				} else {
+					window.setTimeout(activityCheck, 100);
+				}
+			}
+			window.setTimeout(activityCheck, 100);
+		}
 	},
 	methods: {
 		// Get a string with parameters
