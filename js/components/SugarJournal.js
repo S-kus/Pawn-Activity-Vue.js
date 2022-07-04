@@ -1,4 +1,5 @@
 const SugarJournal= {
+	render() {},
 	data() {
 		return {
 			activity: null,

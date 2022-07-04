@@ -1,5 +1,6 @@
 const SugarActivity= {
 	name: 'SugarActivity',
+	render() {},
 	data() {
 		return {
 			activity: null,
