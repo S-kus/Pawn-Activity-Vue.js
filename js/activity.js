@@ -40,12 +40,6 @@ const app = Vue.createApp({
 		this.SugarL10n = this.$refs.SugarL10n;
 		this.SugarPresence = this.$refs.SugarPresence;
 	},
-	created() {
-		// v-visible="condition" (Use this with palettes to avoid errors)
-		app.directive('visible', function (el, binding) {
-			el.style.visibility = !!binding.value ? 'visible' : 'hidden';
-		});
-	},
 	methods: {
 		initialized() {
 			// Sugarizer initialized

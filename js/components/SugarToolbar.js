@@ -28,6 +28,12 @@ const SugarToolitem= {
 			paletteObject: null
 		}
 	},
+	directives: {
+		visible: function (el, binding) {
+			// v-visible="condition" (Use this with palettes to avoid errors)
+			el.style.visibility = !!binding.value ? 'visible' : 'hidden';
+		}
+	},
 	mounted() {
 		// Create palette if present
 		var vm = this;
